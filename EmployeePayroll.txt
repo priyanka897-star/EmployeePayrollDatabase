@@ -17,3 +17,8 @@ mysql> show databases;
 | testdb              |
 +---------------------+
 9 rows in set (0.00 sec)
+mysql>#UC2: create table employee payroll.
+mysql> use employee_payroll;
+Database changed
+mysql>  create Table employee_payroll(id int unsigned not null AUTO_INCREMENT,NAME VARCHAR(150) NOT NULL,SALARY DOUBLE NOT NULL,START date not null,primary key (id));
+Query OK, 0 rows affected (2.66 sec)
