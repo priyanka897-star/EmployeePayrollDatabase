@@ -37,3 +37,17 @@ Query OK, 1 row affected (0.10 sec)
 
 mysql> insert into employee_payroll(name,salary,start) values('samiksha',35000,'12-01-16');
 Query OK, 1 row affected (0.25 sec)
+
+mysql> select * from employee_payroll;
+mysql> #UC4:Retrive All records from employee payroll table.
++----+----------+--------+------------+
+| id | NAME     | SALARY | START      |
++----+----------+--------+------------+
+|  5 | Pranali  |   4000 | 2003-03-21 |
+|  6 | megha    |  40000 | 2013-04-18 |
+|  7 | priya    |  23000 | 2013-09-18 |
+|  8 | varnika  |  15000 | 2015-03-17 |
+|  9 | samiksha |  35000 | 2012-01-16 |
++----+----------+--------+------------+
+5 rows in set (0.02 sec)
+
