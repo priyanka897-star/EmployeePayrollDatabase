@@ -22,3 +22,18 @@ mysql> use employee_payroll;
 Database changed
 mysql>  create Table employee_payroll(id int unsigned not null AUTO_INCREMENT,NAME VARCHAR(150) NOT NULL,SALARY DOUBLE NOT NULL,START date not null,primary key (id));
 Query OK, 0 rows affected (2.66 sec)
+mysql>UC3:insert data into employee payroll.
+mysql> insert into employee_payroll(name,salary,start) values('Pranali',4000,'03-3-21');
+Query OK, 1 row affected (0.24 sec)
+
+mysql> insert into employee_payroll(name,salary,start) values('megha',40000,'13-04-18');
+Query OK, 1 row affected (0.21 sec)
+
+mysql> insert into employee_payroll(name,salary,start) values('priya',23000,'13-09-18');
+Query OK, 1 row affected (0.14 sec)
+
+mysql> insert into employee_payroll(name,salary,start) values('varnika',15000,'15-03-17');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into employee_payroll(name,salary,start) values('samiksha',35000,'12-01-16');
+Query OK, 1 row affected (0.25 sec)
