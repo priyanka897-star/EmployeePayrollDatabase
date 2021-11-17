@@ -135,4 +135,66 @@ mysql> select count(salary) from employee_payroll;
 +---------------+
 1 row in set (0.12 sec)
 
+mysql> alter table employee_payroll add department varchar(100) not null after salary;
+Query OK, 0 rows affected (3.36 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> alter table employee_payroll add Address varchar(150) not null after department;
+Query OK, 0 rows affected (2.23 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>#UC8:Add department,Address fields into employee payroll.
+
+mysql> select * from employee_payroll;
++----+----------+--------+--------+------------+---------+------------+
+| id | NAME     | gender | SALARY | department | Address | START      |
++----+----------+--------+--------+------------+---------+------------+
+|  5 | Pranali  | F      |   4000 |            |         | 2003-03-21 |
+|  6 | megha    | F      |  40000 |            |         | 2013-04-18 |
+|  7 | priya    | F      |  23000 |            |         | 2013-09-18 |
+|  8 | varnika  | F      |  15000 |            |         | 2015-03-17 |
+|  9 | samiksha | F      |  35000 |            |         | 2012-01-16 |
++----+----------+--------+--------+------------+---------+------------+
+5 rows in set (0.00 sec)
+ysql> update employee_payroll set department ='hr' where name = 'varnika';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set department ='sales' where name = 'samiksha';
+Query OK, 1 row affected (0.22 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set department ='IT' where name = 'priya';
+Query OK, 1 row affected (0.14 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set department ='marketing' where name = 'megha';
+Query OK, 1 row affected (0.22 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set department ='Account' where name = 'Pranali';
+Query OK, 1 row affected (0.28 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+----------+--------+--------+------------+---------+------------+
+| id | NAME     | gender | SALARY | department | Address | START      |
++----+----------+--------+--------+------------+---------+------------+
+|  5 | Pranali  | F      |   4000 | Account    |         | 2003-03-21 |
+|  6 | megha    | F      |  40000 | marketing  |         | 2013-04-18 |
+|  7 | priya    | F      |  23000 | IT         |         | 2013-09-18 |
+|  8 | varnika  | F      |  15000 | hr         |         | 2015-03-17 |
+|  9 | samiksha | F      |  35000 | sales      |         | 2012-01-16 |
++----+----------+--------+--------+------------+---------+------------+
+5 rows in set (0.00 sec)
+mysql> select * from employee_payroll;
++----+----------+--------+--------+------------+---------+------------+
+| id | NAME     | gender | SALARY | department | Address | START      |
++----+----------+--------+--------+------------+---------+------------+
+|  5 | Pranali  | F      |   4000 | Account    | pune    | 2003-03-21 |
+|  6 | megha    | F      |  40000 | marketing  | mumbai  | 2013-04-18 |
+|  7 | priya    | F      |  23000 | IT         | mumbai  | 2013-09-18 |
+|  8 | varnika  | F      |  15000 | hr         | chennai | 2015-03-17 |
+|  9 | samiksha | F      |  35000 | sales      | panjab  | 2012-01-16 |
++----+----------+--------+--------+------------+---------+------------+
+5 rows in set (0.00 sec)
