@@ -198,3 +198,66 @@ mysql> select * from employee_payroll;
 |  9 | samiksha | F      |  35000 | sales      | panjab  | 2012-01-16 |
 +----+----------+--------+--------+------------+---------+------------+
 5 rows in set (0.00 sec)
+mysql>#UC9:extends employee payroll table add basicpay,netpay,incometax,taxablepay,deductions.
+ysql> alter table employee_payroll add basicpay double not null after salary;
+Query OK, 0 rows affected (2.73 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add incometax double not null after basicpay;
+Query OK, 0 rows affected (2.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add netpay double not null after incometax;
+Query OK, 0 rows affected (2.17 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add taxablepay double not null after netpay;
+Query OK, 0 rows affected (2.61 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> alter table employee_payroll add deductions double not null after taxablepay;
+Query OK, 0 rows affected (1.98 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> select * from employee_payroll;
++----+----------+--------+--------+----------+-----------+--------+------------+------------+------------+---------+------------+
+| id | NAME     | gender | SALARY | basicpay | incometax | netpay | taxablepay | deductions | department | Address | START      |
++----+----------+--------+--------+----------+-----------+--------+------------+------------+------------+---------+------------+
+|  5 | Pranali  | F      |   4000 |     2000 |         0 |   3000 |       1000 |        300 | Account    | pune    | 2003-03-21 |
+|  6 | megha    | F      |  40000 |    30000 |         0 |  32000 |      29000 |       1000 | marketing  | mumbai  | 2013-04-18 |
+|  7 | priya    | F      |  23000 |    20000 |         0 |  25000 |      16000 |       1500 | IT         | mumbai  | 2013-09-18 |
+|  8 | varnika  | F      |  15000 |    14000 |         0 |  15000 |      12000 |       2000 | hr         | chennai | 2015-03-17 |
+|  9 | samiksha | F      |  35000 |    34000 |         0 |  32000 |      31000 |       1150 | sales      | panjab  | 2012-01-16 |
++----+----------+--------+--------+----------+-----------+--------+------------+------------+------------+---------+------------+
+5 rows in set (0.10 sec)
+
+mysql> update employee_payroll set  incometax = 1000 where name ='pranali';
+Query OK, 1 row affected (0.09 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set  incometax = 1500 where name ='megha';
+Query OK, 1 row affected (0.17 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set  incometax = 2000 where name ='priya';
+Query OK, 1 row affected (0.18 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set  incometax =3000 where name ='varnika';
+Query OK, 1 row affected (0.11 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update employee_payroll set  incometax = 2000 where name ='samiksha';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from employee_payroll;
++----+----------+--------+--------+----------+-----------+--------+------------+------------+------------+---------+------------+
+| id | NAME     | gender | SALARY | basicpay | incometax | netpay | taxablepay | deductions | department | Address | START      |
++----+----------+--------+--------+----------+-----------+--------+------------+------------+------------+---------+------------+
+|  5 | Pranali  | F      |   4000 |     2000 |      1000 |   3000 |       1000 |        300 | Account    | pune    | 2003-03-21 |
+|  6 | megha    | F      |  40000 |    30000 |      1500 |  32000 |      29000 |       1000 | marketing  | mumbai  | 2013-04-18 |
+|  7 | priya    | F      |  23000 |    20000 |      2000 |  25000 |      16000 |       1500 | IT         | mumbai  | 2013-09-18 |
+|  8 | varnika  | F      |  15000 |    14000 |      3000 |  15000 |      12000 |       2000 | hr         | chennai | 2015-03-17 |
+|  9 | samiksha | F      |  35000 |    34000 |      2000 |  32000 |      31000 |       1150 | sales      | panjab  | 2012-01-16 |
++----+----------+--------+--------+----------+-----------+--------+------------+------------+------------+---------+------------+
+5 rows in set (0.00 sec)
