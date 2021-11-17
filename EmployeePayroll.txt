@@ -63,4 +63,34 @@ mysql> select salary from employee_payroll where start between cast('2003-01-01'
 |  35000 |
 +--------+
 5 rows in set (0.12 sec)
+mysql> #UC6:Add gender to employee payroll .
+mysql> alter table employee_payroll add gender char(1) after name;
+Query OK, 0 rows affected (3.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
 
+mysql> select * from employee_payroll;
++----+----------+--------+--------+------------+
+| id | NAME     | gender | SALARY | START      |
++----+----------+--------+--------+------------+
+|  5 | Pranali  | NULL   |   4000 | 2003-03-21 |
+|  6 | megha    | NULL   |  40000 | 2013-04-18 |
+|  7 | priya    | NULL   |  23000 | 2013-09-18 |
+|  8 | varnika  | NULL   |  15000 | 2015-03-17 |
+|  9 | samiksha | NULL   |  35000 | 2012-01-16 |
++----+----------+--------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> update employee_payroll set gender ='F' ;
+Query OK, 5 rows affected (0.17 sec)
+Rows matched: 5  Changed: 5  Warnings: 0
+mysql> select * from employee_payroll;
++----+----------+--------+--------+------------+
+| id | NAME     | gender | SALARY | START      |
++----+----------+--------+--------+------------+
+|  5 | Pranali  | F      |   4000 | 2003-03-21 |
+|  6 | megha    | F      |  40000 | 2013-04-18 |
+|  7 | priya    | F      |  23000 | 2013-09-18 |
+|  8 | varnika  | F      |  15000 | 2015-03-17 |
+|  9 | samiksha | F      |  35000 | 2012-01-16 |
++----+----------+--------+--------+------------+
+5 rows in set (0.00 sec)
